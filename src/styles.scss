@@ -1,0 +1,103 @@
+.appContainer {
+    margin: 0;
+    overscroll-behavior: none;
+
+    .headerSection {
+        display: flex;
+        width: 100%;
+        background-color: gray;
+        height: 50px;
+        align-items: center;
+        justify-content: space-between;
+
+        .leftHandSide {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            gap: 10px;
+
+            .focus {
+                display: flex;
+                align-items: center;
+                border: black 2px;
+
+                p {
+                    color: aliceblue;
+                }
+
+                select {
+                    border: none;
+                    height: 40px;
+                }
+            }
+
+            .dailyMetrics {
+                color: red;
+            }
+
+            .upgrades {
+                button {
+                    width: 100px;
+                    height: 35px;
+                    padding: auto;
+                    border: none;
+                    border-radius: 10px;
+                }
+            }
+
+        }
+
+        .rightHandside {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            gap: 10px;
+
+            .Users {
+                img {
+                    background-color: greenyellow;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    align-items: center;
+                }
+            }
+
+            .aboutUs {
+                select {
+                    height: 40px;
+                    border-radius: 10px;
+                }
+            }
+
+            .profile {
+                select {
+                    height: 40px;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .sideBarContent {
+        .upperSect {
+            .spaces {}
+
+            .sounds {}
+
+            .calender {}
+        }
+
+        .lowerSect {
+            .timer {}
+
+            .tasks {}
+
+            .notes {}
+
+            .breathe {}
+
+            .reset {}
+        }
+    }
+}
