@@ -1,14 +1,75 @@
-.appContainer {
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --hover-bg-color: #f5f5f5;
+    /* Light background on hover */
+    --hover-border-color: #3498db;
+    /* Hover border color */
+    --highlight-color: #3498db;
+    /* Color for focused or highlighted elements */
+}
+
+html,
+body {
     margin: 0;
-    overscroll-behavior: none;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: Arial, sans-serif;
+    /* Slight background tint for page */
+}
+
+#root {
+    position: relative;
+    min-height: 90vh;
+    width: 100%;
+}
+
+.appContainer {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    .backgroundVideo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
 
     .headerSection {
         display: flex;
         width: 100%;
-        background-color: gray;
         height: 50px;
         align-items: center;
         justify-content: space-between;
+        padding: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* Slight shadow for header */
+
+        >* {
+            /* Applies to individual children, not the whole container */
+            background-color: var(--background-color);
+            color: var(--text-color);
+            gap: 10px;
+            padding: 5px;
+            margin: 0;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+            /* Smooth transition for hover effects */
+        }
+
+        >*:hover {
+            /* Hover effect applies only to individual children */
+            background-color: var(--hover-bg-color);
+            border-color: var(--hover-border-color);
+            cursor: pointer;
+        }
 
         .leftHandSide {
             display: flex;
@@ -16,35 +77,50 @@
             padding: 5px;
             gap: 10px;
 
+            * {
+                border-radius: 10px;
+            }
+
             .focus {
                 display: flex;
                 align-items: center;
-                border: black 2px;
-
-                p {
-                    color: aliceblue;
-                }
 
                 select {
                     border: none;
                     height: 40px;
+                    outline: none;
+                    padding: 5px;
+                    background-color: #f8f9fa;
+                    border-radius: 5px;
+                    transition: all 0.3s;
+                }
+
+                select:hover,
+                select:focus {
+                    background-color: var(--hover-bg-color);
+                    border: 1px solid var(--highlight-color);
                 }
             }
 
             .dailyMetrics {
                 color: red;
+                font-weight: bold;
             }
 
-            .upgrades {
-                button {
-                    width: 100px;
-                    height: 35px;
-                    padding: auto;
-                    border: none;
-                    border-radius: 10px;
-                }
+            .upgrades button {
+                width: 100px;
+                height: 35px;
+                border: none;
+                border-radius: 10px;
+                background-color: var(--highlight-color);
+                color: white;
+                font-weight: bold;
+                transition: background-color 0.3s;
             }
 
+            .upgrades button:hover {
+                background-color: #2c8ed6;
+            }
         }
 
         .rightHandside {
@@ -53,51 +129,161 @@
             padding: 5px;
             gap: 10px;
 
-            .Users {
-                img {
-                    background-color: greenyellow;
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                    align-items: center;
-                }
+            .Users img {
+                background-color: greenyellow;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                transition: transform 0.3s;
             }
 
-            .aboutUs {
-                select {
-                    height: 40px;
-                    border-radius: 10px;
-                }
+            .Users img:hover {
+                transform: scale(1.1);
             }
 
-            .profile {
-                select {
-                    height: 40px;
-                    border-radius: 10px;
-                }
+            .aboutUs select,
+            .profile select {
+                height: 40px;
+                border-radius: 10px;
+                border: 1px solid #ddd;
+                transition: all 0.3s;
+            }
+
+            .aboutUs select:hover,
+            .profile select:hover {
+                border-color: var(--hover-border-color);
             }
         }
     }
 
-    .sideBarContent {
-        .upperSect {
-            .spaces {}
+    .sideBarContainer {
+        width: 80px;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 5px;
+        border-radius: 8px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        gap: 10px;
 
-            .sounds {}
-
-            .calender {}
-        }
-
+        .upperSect,
         .lowerSect {
-            .timer {}
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
 
-            .tasks {}
+        button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 12px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            border: 1px solid transparent;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
 
-            .notes {}
+        button:hover {
+            transform: translateY(-2px);
+            background-color: var(--hover-bg-color);
+            color: var(--highlight-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: var(--highlight-color);
 
-            .breathe {}
+            /* Target the icon (svg) and text (p) within the hovered button */
+            svg {
+                color: var(--highlight-color);
+                transform: rotate(15deg);
+            }
 
-            .reset {}
+            p {
+                color: var(--highlight-color);
+            }
+        }
+
+        button:active {
+            transform: scale(0.95);
+
+            /* Slight shrink effect on the icon */
+            svg {
+                transform: scale(0.9);
+            }
+        }
+
+        svg {
+            font-size: 30px;
+            /* Adjust icon size */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        p {
+            margin: 0;
+            font-size: 12px;
+            text-align: center;
+            transition: color 0.3s ease;
         }
     }
+
+    .spacesContent {
+        position: absolute;
+        top: 60px;
+        left: 80px;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        height: 70vh;
+        z-index: 10;
+        overflow-y: auto;
+        margin: 10px;
+    }
+
+    .soundsContent {
+        position: absolute;
+        top: 60px;
+        left: 80px;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        height: 70vh;
+        z-index: 10;
+        overflow-y: auto;
+        margin: 10px;
+    }
+
+    .calenderContent {
+        position: absolute;
+        top: 60px;
+        left: 80px;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        height: 70vh;
+        z-index: 10;
+        overflow-y: auto;
+        margin: 10px;
+    }
+
+
+
+
 }
