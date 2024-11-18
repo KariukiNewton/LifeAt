@@ -1,4 +1,4 @@
-function Media() {
+function Media({ onClose }) {
     return (
         <div className="overlay">
             <div className="mediaContent">

@@ -1,11 +1,9 @@
-function Breathe() {
+function Breathe({ onClose }) {
     return (
-        <div className="overlay">
-            <div className="breatheContent">
-                <h2>Breathe</h2>
-                <p>This is the Breathe content.</p>
-                <button onClick={onClose}>Close</button>
-            </div>
+        <div className="breatheContent">
+            <h2>Breathe</h2>
+            <p>This is the Breathe content.</p>
+            <button onClick={onClose}>Close</button>
         </div>
     );
 }

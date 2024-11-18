@@ -1,14 +1,21 @@
 import React from "react";
+import { FaHeadphonesAlt } from "react-icons/fa";
+import { SiWebmoney } from "react-icons/si";
 
 function HeaderSection() {
     return (
         <div className="headerSection">
             <div className="leftHandSide">
                 <div className="focus">
-                    <p>Focus</p> {/* Moved outside the select element */}
                     <select>
-                        <option>Plan</option>
-                        <option>Explore</option>
+                        <option>
+                            <FaHeadphonesAlt />
+                            Plan
+                        </option>
+                        <option>
+                            <SiWebmoney />
+                            Explore
+                        </option>
                     </select>
                 </div>
                 <div className="dailyMetrics">

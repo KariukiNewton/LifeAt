@@ -45,7 +45,7 @@ function SideBar({ openOverlay }) {
                     <FaSpotify />
                     <p>Media</p>
                 </button>
-                <button className="breathe" onClick={() => openOverlay("Breath")}>
+                <button className="breathe" onClick={() => openOverlay("Breathe")}>
                     <FaWind />
                     <p>Breathe</p>
                 </button>

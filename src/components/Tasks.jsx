@@ -1,11 +1,11 @@
-function Tasks() {
+function Tasks({ onClose }) {
     return (
-        <div className="overlay">
-            <div className="timerContent">
-                <h2>Timer</h2>
-                <p>This is the Timer content.</p>
-                <button onClick={onClose}>Close</button>
-            </div>
+        <div className="tasksContent">
+            <h2>Tasks</h2>
+            <p>This is the Tasks content.</p>
+            <button onClick={onClose}>Close</button>
         </div>
     );
 }
+
+export default Tasks
