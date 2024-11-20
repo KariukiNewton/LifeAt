@@ -35,7 +35,7 @@ function Spaces({ onClose, onSelectVideo }) {
 
                 <div className="filterButtons">
                     {["All", "Nature", "Art", "Sky", "More"].map((filter, index) => (
-                        <button key={index} className="filter-button">
+                        <button key={index} className="individualFilterButton">
                             {filter}
                         </button>
                     ))}

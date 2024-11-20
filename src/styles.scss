@@ -323,7 +323,7 @@ body {
             left: 0;
             padding: 10px;
 
-            * {
+            button {
                 width: 35px;
                 height: 35px;
                 pad: 10px;
@@ -398,11 +398,95 @@ body {
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
+        width: 350px;
         height: 70vh;
         z-index: 10;
         overflow-y: auto;
         margin: 10px;
+
+        .closeBtn {
+            position: absolute;
+            top: 5px; // Spacing from the top
+            right: 0px; // Spacing from the right
+            background-color: var(--background-color);
+            border: none;
+            font-size: 18px; // Adjust size as needed
+            color: var(--text-color); // Neutral color
+            cursor: pointer;
+            transition: color 0.2s;
+
+            &:hover {
+                color: red; // Darker color on hover
+            }
+
+            svg {
+                padding: 0;
+            }
+        }
+
+        h2 {
+            color: var(--text-color);
+        }
+
+        .masterVolume {
+            margin-top: 25px;
+            left: 0;
+
+            label {
+                display: block;
+                font-weight: bold;
+
+            }
+
+            .volInput {
+                display: flex;
+
+                svg {
+                    padding: 2px;
+                }
+
+                input[type="range"] {
+                    width: 100%;
+                }
+            }
+        }
+
+        .allSounds {
+            h3 {
+                color: var(--text-color);
+            }
+
+            .soundItem {
+                background-color: rgb(240, 238, 217);
+                border-radius: 10px;
+                padding: 5px 10px;
+                margin: 5px;
+
+                .soundDescription {
+                    .soundIcon {}
+
+                    .soundName {}
+                }
+
+                .individualSound {
+                    display: flex;
+
+                    svg {
+                        padding: 0;
+                    }
+
+                    input[type="range"] {
+                        width: 100%;
+                    }
+                }
+
+                audio {}
+
+            }
+        }
+
+
+
     }
 
     .calenderContent {

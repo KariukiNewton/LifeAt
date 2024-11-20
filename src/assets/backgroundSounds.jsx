@@ -14,17 +14,17 @@ import Wind from './Sounds/wind.mp3';
 const backgroundSounds = () => {
     return {
         sounds: [
-            { index: 0, src: BirdsAndWaterfall, description: 'Birds and Waterfall' },
-            { index: 1, src: FireCrackling, description: 'Fire Crackling' },
-            { index: 2, src: ForestSounds, description: 'Forest Sounds' },
-            { index: 3, src: Guitar, description: 'Guitar Music' },
-            { index: 4, src: KeyboardTyping, description: 'Keyboard Typing' },
-            { index: 5, src: NatureAndBirds, description: 'Nature and Birds' },
-            { index: 6, src: OceanWaves, description: 'Ocean Waves' },
-            { index: 7, src: Peaceful, description: 'Peaceful Background' },
-            { index: 8, src: Piano, description: 'Piano Music' },
-            { index: 9, src: RainSounds, description: 'Rain Sounds' },
-            { index: 10, src: Wind, description: 'Winds' }
+            { index: 0, src: BirdsAndWaterfall, name: 'Birds & Waterfall', icon: '🌊🐦' },
+            { index: 1, src: FireCrackling, name: 'Fire Crackling', icon: '🔥' },
+            { index: 2, src: ForestSounds, name: 'Forest Sounds', icon: '🌲🍃' },
+            { index: 3, src: Guitar, name: 'Guitar Music', icon: '🎸' },
+            { index: 4, src: KeyboardTyping, name: 'Keyboard Typing', icon: '⌨️' },
+            { index: 5, src: NatureAndBirds, name: 'Nature & Birds', icon: '🌳🐦' },
+            { index: 6, src: OceanWaves, name: 'Ocean Waves', icon: '🌊' },
+            { index: 7, src: Peaceful, name: 'Peaceful Ambience', icon: '☁️' },
+            { index: 8, src: Piano, name: 'Piano Music', icon: '🎹' },
+            { index: 9, src: RainSounds, name: 'Rain Sounds', icon: '🌧️' },
+            { index: 10, src: Wind, name: 'Wind', icon: '💨' }
         ],
     };
 };
