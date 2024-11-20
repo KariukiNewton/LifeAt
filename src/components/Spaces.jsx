@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { CgCloseR } from "react-icons/cg";
 import { FaSearch } from "react-icons/fa";
-import backgroundImages from "../assets/backgroundVideos";
+import backgroundVideos from "../assets/backgroundVideos";
 
-function Spaces({ onClose }) {
-    const [activeTab, setActiveTab] = useState('all')
+function Spaces({ onClose, onSelectVideo }) {
+    const [activeTab, setActiveTab] = useState('all');      //Tacking active filter
+    const videoData = backgroundVideos();       //fetching all video categories
 
-    const handleTabChange = (tab) => setActiveTab(tab)
+
+    const handleTabChange = (tab) => setActiveTab(tab.toLowerCase());
+
+    const filteredVideos = useMemo(() => {
+        return Object.entries(videoData)
+            .filter(([category]) => activeTab === 'all' || category.toLowerCase() === activeTab)
+            .flatMap(([_, videos]) => videos);
+    }, [activeTab, videoData]);
 
     return (
         <>
@@ -14,9 +22,10 @@ function Spaces({ onClose }) {
                 <button className="closeBtn" onClick={onClose}>
                     <CgCloseR />
                 </button>
+
                 <div className="tabs">
-                    <button className="tabActive">All Spaces</button>
-                    <button className="tab">Favourites</button>
+                    <button className="allSpacesBtn" onClick={() => handleTabChange('all')}>All Spaces</button>
+                    <button className="favouritesBtn">Favourites</button>
                 </div>
 
                 <div className="searchBar">
@@ -25,7 +34,7 @@ function Spaces({ onClose }) {
                 </div>
 
                 <div className="filterButtons">
-                    {["All", "🌄", "🪟", "🧘", "🎥", "🍂"].map((filter, index) => (
+                    {["All", "Nature", "Art", "Sky", "More"].map((filter, index) => (
                         <button key={index} className="filter-button">
                             {filter}
                         </button>
@@ -36,11 +45,23 @@ function Spaces({ onClose }) {
                     <h3>Featured Spaces</h3>
                     <p>Trending Spaces</p>
                     <div className="spacesGrid">
-                        <div className="spaceItem">
-                            <img src="" alt=""></img>
-                            <p>space name{ }</p>
-                            <button className="favouriteIcon">♥</button>
-                        </div>
+                        {filteredVideos.map((video) => (
+                            <div
+                                key={video.index}
+                                onClick={() => onSelectVideo(video.src)} // Pass selected video 
+                                className="spaceItem">
+                                <video
+                                    src={video.src}
+                                    controls
+                                    loop
+                                    muted
+                                    className="spaceVideo"
+                                ></video>
+                                <p className="videoDescription">{video.description}</p>
+                                <button className="favouriteIcon">♥</button>
+                            </div>
+                        ))}
+
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ import Flames from './Videos/z_flames.mp4';
 import zSunset from './Videos/z_sunset.mp4';
 import Waves from './Videos/z_waves.mp4';
 
-const backgroundImages = () => {
+const backgroundVideos = () => {
     return {
         nature: [
             { index: 0, src: Aesthetic_Falls, description: 'Aesthetic Falls' },
@@ -55,4 +55,4 @@ const backgroundImages = () => {
     };
 };
 
-export default backgroundImages;
+export default backgroundVideos;

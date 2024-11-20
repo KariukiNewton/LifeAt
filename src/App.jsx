@@ -16,10 +16,11 @@ import Breathe from './components/Breathe'
 
 
 function App() {
-  const videos = backgroundVideos().art;
-  const backgroundVideo = videos[0].src;
+  const videos = backgroundVideos().sky;
+  //const backgroundVideo = videos[0].src;
 
   const [activeOverlay, setActiveOverlay] = useState(null);
+  const [backgroundVideo, setBackgroundVideo] = useState(videos[0].src);
 
   // Function to open an overlay
   const openOverlay = (overlay) => {
@@ -30,6 +31,10 @@ function App() {
   const closeOverlay = () => {
     setActiveOverlay(null);
   };
+
+  const handleSelectVideo = (videoSrc) => {
+    setBackgroundVideo(videoSrc)
+  }
 
   return (
     <div className="appContainer">
@@ -42,7 +47,7 @@ function App() {
       {/**Conditional Rendering of the overlays*/}
 
 
-      {activeOverlay === "Spaces" && <Spaces onClose={closeOverlay} />}
+      {activeOverlay === "Spaces" && <Spaces onClose={closeOverlay} onSelectVideo={handleSelectVideo} />}
       {activeOverlay === "Sounds" && <Sounds onClose={closeOverlay} />}
       {activeOverlay === "Calendar" && <Calender onClose={closeOverlay} />}
       {activeOverlay === "Timer" && <Timer onClose={closeOverlay} />}
