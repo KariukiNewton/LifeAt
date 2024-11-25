@@ -299,7 +299,6 @@ body {
             position: absolute;
             margin-top: 40px;
             width: 100%;
-            background-color: indigo;
             display: flex;
             left: 0;
             height: 35px;
@@ -395,7 +394,7 @@ body {
         left: 80px;
         background-color: var(--background-color);
         color: var(--text-color);
-        padding: 20px;
+        padding: 10px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         width: 350px;
@@ -495,18 +494,176 @@ body {
         left: 80px;
         background-color: var(--background-color);
         color: var(--text-color);
-        padding: 20px;
+        padding: 5px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
-        height: 70vh;
+        width: 350px;
+        height: 80vh;
         z-index: 10;
         overflow-y: auto;
         margin: 10px;
+
+        .closeBtn {
+            position: absolute;
+            top: 5px; // Spacing from the top
+            right: 0px; // Spacing from the right
+            background-color: var(--background-color);
+            border: none;
+            font-size: 18px; // Adjust size as needed
+            color: var(--text-color); // Neutral color
+            cursor: pointer;
+            transition: color 0.2s;
+
+            &:hover {
+                color: red; // Darker color on hover
+            }
+
+            svg {
+                padding: 0;
+            }
+        }
+
+        .calenderHeader,
+        .calenderBody,
+        .calenderFooter {
+            margin: 0;
+            /* Remove any default margin */
+            padding: 10px 0;
+            /* Adjust padding */
+            width: 90%;
+            /* Ensure the containers span the full width */
+            background-color: transparent;
+            /* Optional for a clean look */
+        }
+
+        .calenderHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            align-items: start;
+            width: 85%;
+            left: 0px;
+
+            .dateDisplay {
+                left: 0;
+                display: flex;
+                align-items: center;
+
+                .navButton {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 18px;
+                    display: flex;
+                    align-items: center;
+                    color: #333;
+
+                    &:hover {
+                        color: #007bff;
+                    }
+
+                    svg {}
+                }
+
+                h4 {
+                    margin: 0 10px;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+
+            .todayButton {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 5px 10px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--highlight-color);
+                }
+            }
+        }
+
+        .calenderBody {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+
+            h3 {
+                color: var(--text-color);
+                margin: 0 0 10px;
+            }
+
+            .timeSlot {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                margin-bottom: 10px;
+                padding: 5px;
+                background-color: var(--background-color);
+                border-radius: 10px;
+                background-color: #ccc;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .timeLabel {
+                    flex: 0 0 70px;
+                    text-align: left;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+
+                .timeInput {
+                    flex: 1;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    padding: 5px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .calenderFooter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: var(--background-color);
+            border-top: 1px solid #ddd;
+
+            p {
+                margin: 0;
+                font-size: 14px;
+                color: var(--text-color);
+            }
+
+            .settingsButton {
+                background: none;
+                border: none;
+                font-size: 18px;
+                cursor: pointer;
+
+                &:hover {
+                    color: #007bff;
+                }
+
+                span {}
+            }
+
+        }
+
     }
 
     .timerContent {
-        position: absolute;
+        //position: absolute;
         top: 60px;
         left: 80px;
         background-color: var(--background-color);
@@ -514,11 +671,182 @@ body {
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
+        width: 350px;
         height: 70vh;
         z-index: 10;
         overflow-y: auto;
         margin: 10px;
+        user-select: none;
+
+        .closeBtn {
+            position: absolute;
+            top: 5px; // Spacing from the top
+            right: 0px; // Spacing from the right
+            background-color: var(--background-color);
+            border: none;
+            font-size: 18px; // Adjust size as needed
+            color: var(--text-color); // Neutral color
+            cursor: pointer;
+            transition: color 0.2s;
+
+            &:hover {
+                color: red; // Darker color on hover
+            }
+
+            svg {
+                padding: 0;
+            }
+        }
+
+        .timerHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+            select {
+                padding: 8px 12px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+            }
+        }
+
+        .timerDisplay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .timerCountDown {
+                font-size: 48px;
+                font-weight: bold;
+                margin-right: 20px;
+            }
+
+            .StartButton {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+
+            .resetButton {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                color: #666;
+
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+
+        .changeTimers {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            button {
+                background-color: #f2f2f2;
+                border: 1px solid #ccc;
+                padding: 8px 12px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-right: 10px;
+
+                &:hover {
+                    background-color: #e6e6e6;
+                }
+            }
+
+            .toggleViewer {
+                background-color: transparent;
+                border: none;
+                color: #666;
+
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+
+        .countDownSettings {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+
+            label {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+                input {
+                    margin-right: 8px;
+                }
+            }
+        }
+
+        .setTimers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                label {
+                    margin-bottom: 8px;
+                }
+
+                input {
+                    padding: 8px 12px;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                    font-size: 16px;
+                    width: 80px;
+                }
+            }
+        }
+
+        .timerSound {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+
+            label {
+                margin-bottom: 8px;
+            }
+
+            select {
+                padding: 8px 12px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .volume {
+                width: 100%;
+            }
+        }
+
+        .saveBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
     }
 
     .tasksContent {
@@ -527,15 +855,276 @@ body {
         left: 80px;
         background-color: var(--background-color);
         color: var(--text-color);
-        padding: 20px;
+        padding: 10px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
+        width: 350px;
         height: 70vh;
         z-index: 10;
-        overflow-y: auto;
-        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .closeBtn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.2s;
+
+            &:hover {
+                color: red;
+            }
+
+            svg {
+                display: block;
+            }
+        }
+
+        .header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-right: 20px;
+            width: 90%;
+
+            select {
+                width: 70px;
+                padding: 0.5rem;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                outline: none;
+                background-color: var(--background-color);
+                color: var(--text-color);
+
+
+                &:focus,
+                &:hover {
+                    border-color: #0066ff;
+                }
+            }
+        }
+
+        .tasksList {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-bottom: 60px;
+
+            .addTask {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                color: var(--text-color);
+                background: none;
+                border: 1px solid var(--text-color);
+                border-radius: 4px;
+                cursor: pointer;
+                padding: 0.5rem;
+                transition: all 0.2s;
+
+                &:hover {
+                    background-color: rgba(128, 128, 128, 0.1);
+                }
+            }
+
+            .taskItem {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background-color: var(--background-color);
+
+                .taskCheckBox {
+                    width: 1rem;
+                    height: 1rem;
+                    cursor: pointer;
+                }
+
+                .taskName {
+                    flex: 1;
+                    border: none;
+                    outline: none;
+                    padding: 0.25rem;
+                    background-color: transparent;
+                    color: var(--text-color);
+
+                    &::placeholder {
+                        color: #999;
+                    }
+                }
+
+                .tagContainer {
+                    position: relative;
+
+                    .addTag {
+                        background: none;
+                        border: none;
+                        color: #666;
+                        font-size: 0.875rem;
+                        cursor: pointer;
+                        padding: 2px 6px;
+                        border-radius: 3px;
+
+                        &:hover {
+                            background-color: rgba(128, 128, 128, 0.1);
+                        }
+                    }
+                }
+
+                .moreButtonContainer {
+                    position: relative;
+
+                    .moreButton {
+                        background: none;
+                        border: none;
+                        color: #666;
+                        cursor: pointer;
+                        padding: 2px 6px;
+                        border-radius: 3px;
+
+                        &:hover {
+                            background-color: rgba(128, 128, 128, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .popup-menu {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: var(--background-color);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 120px;
+
+            button {
+                display: block;
+                width: 100%;
+                padding: 0.5rem 1rem;
+                text-align: left;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--text-color);
+
+                &:hover {
+                    background-color: rgba(128, 128, 128, 0.1);
+                }
+
+                &.active {
+                    background-color: rgba(0, 102, 255, 0.1);
+                }
+            }
+        }
+
+        .tasksControl {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 90%;
+            padding: 10px;
+            background-color: var(--background-color);
+            border-top: 1px solid #ddd;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .deleteButton {
+                background: none;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 0.5rem;
+                color: var(--text-color);
+                cursor: pointer;
+                transition: all 0.2s;
+                left: 0;
+
+                &:hover {
+                    background-color: rgba(128, 128, 128, 0.1);
+                }
+
+                &.active {
+                    border-color: #0066ff;
+                }
+            }
+
+            .progressContainer {
+                flex: 2;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--text-color);
+                font-size: 0.875rem;
+
+                progress {
+                    flex: 2;
+                    height: 4px;
+
+                    &::-webkit-progress-bar {
+                        background-color: #f0f0f0;
+                        border-radius: 2px;
+                    }
+
+                    &::-webkit-progress-value {
+                        background-color: #0066ff;
+                        border-radius: 2px;
+                    }
+                }
+
+                span {
+                    flex: 1;
+                    width: 40px;
+                }
+            }
+        }
+
+        .popup-menu2 {
+            position: relative;
+            //left: 0;
+            //bottom: 100%;
+            background: var(--background-color);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 120px;
+
+            button {
+                display: block;
+                width: 100%;
+                padding: 0.5rem 1rem;
+                text-align: left;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--text-color);
+
+                &:hover {
+                    background-color: rgba(128, 128, 128, 0.1);
+                }
+
+                &.active {
+                    background-color: rgba(0, 102, 255, 0.1);
+                }
+            }
+        }
     }
+
 
     .notesContent {
         position: absolute;
@@ -553,36 +1142,148 @@ body {
         margin: 10px;
     }
 
-    .mediaContent {
+    .fortuneContent {
         position: absolute;
-        top: 60px;
-        left: 80px;
-        background-color: var(--background-color);
-        color: var(--text-color);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        top: 250px;
+        left: 250px;
         width: 300px;
-        height: 70vh;
-        z-index: 10;
-        overflow-y: auto;
-        margin: 10px;
+        background: transparent;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+
+        .closeBtn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.2s;
+
+            &:hover {
+                color: red;
+            }
+
+            svg {
+                display: block;
+            }
+        }
+
+        .fortuneHeader {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: grab;
+            background: transparent;
+            border-radius: 10px 10px 0 0;
+
+            &:active {
+                cursor: grabbing;
+            }
+
+            .fortuneDaily {
+                font-size: 18px;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+        .fortuneBody {
+            padding: 15px;
+            text-align: center;
+
+            .fortuneMessage {
+                font-size: 20px;
+                font-style: italic;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
     }
 
     .breatheContent {
-        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
         top: 60px;
         left: 80px;
-        background-color: var(--background-color);
-        color: var(--text-color);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
-        height: 70vh;
-        z-index: 10;
-        overflow-y: auto;
-        margin: 10px;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent overlay */
+        z-index: 9999;
+
+        .closeBtn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.2s;
+
+            &:hover {
+                color: red;
+            }
+
+            svg {
+                display: block;
+            }
+        }
+
+        .circleContainer {
+            position: relative;
+            width: 80vmin;
+            /* Responsive width */
+            height: 80vmin;
+            /* Keep the aspect ratio square */
+            max-width: 400px;
+            max-height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            .outerCircle {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+
+            .innerCircle {
+                width: 50%;
+                height: 50%;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+                position: absolute;
+                transition: all 2s ease-in-out;
+
+                .breathingText {
+                    font-size: 20px;
+                    color: #fff;
+                    z-index: 10;
+                }
+            }
+        }
     }
 
 

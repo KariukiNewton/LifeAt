@@ -4,7 +4,8 @@ import { SlCalender } from "react-icons/sl";
 import { PiTimerBold } from "react-icons/pi";
 import { FaTasks } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
-import { FaSpotify, FaWind } from "react-icons/fa";
+import { TbCrystalBall } from "react-icons/tb";
+import { FaWind } from "react-icons/fa";
 import { IoIosMore } from "react-icons/io";
 
 
@@ -42,8 +43,8 @@ function SideBar({ openOverlay }) {
                     <p>Notes</p>
                 </button>
                 <button className="media" onClick={() => openOverlay("Media")}>
-                    <FaSpotify />
-                    <p>Media</p>
+                    <TbCrystalBall />
+                    <p>Fortune</p>
                 </button>
                 <button className="breathe" onClick={() => openOverlay("Breathe")}>
                     <FaWind />
