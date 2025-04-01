@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import HeaderSection from "./components/HeaderSection";
-import SideBar from "./components/sidebar";
+import SideBar from "./components/SideBar";
 import backgroundVideos from "./assets/backgroundVideos";
 import backgroundSounds from "./assets/backgroundSounds";
 import "./styles.scss";
